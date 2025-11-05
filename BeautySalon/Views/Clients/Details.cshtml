@@ -1,0 +1,32 @@
+﻿@model BeautySalon.Models.Client
+
+@{
+    ViewBag.Title = "Client Details";
+}
+
+<main style="font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: 40px auto; background-color: #ffe6f0; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #c2185b; text-align: center; font-size: 2rem; margin-bottom: 20px;">@ViewBag.Title</h2>
+
+    <div style="margin-top: 20px; background-color:#fff; padding:20px; border-radius:10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <h4 style="color:#880e4f; margin-bottom:10px;">Client Information</h4>
+        <hr />
+        <dl style="font-size: 1.1rem; color:#4a148c;">
+          
+            <dt style="font-weight:bold; margin-top:10px;">@Html.DisplayNameFor(model => model.ClientName)</dt>
+            <dd style="margin-left:20px; margin-bottom:10px;">@Html.DisplayFor(model => model.ClientName)</dd>
+
+          
+            <dt style="font-weight:bold; margin-top:10px;">@Html.DisplayNameFor(model => model.Email)</dt>
+            <dd style="margin-left:20px; margin-bottom:10px;">@Html.DisplayFor(model => model.Email)</dd>
+
+            
+            <dt style="font-weight:bold; margin-top:10px;">@Html.DisplayNameFor(model => model.MobilePhone)</dt>
+            <dd style="margin-left:20px; margin-bottom:10px;">@Html.DisplayFor(model => model.MobilePhone)</dd>
+        </dl>
+    </div>
+
+    <div style="text-align:center; margin-top: 30px;">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }, new { @style = "background-color:#c2185b; color:white; padding:10px 20px; border-radius:8px; text-decoration:none; margin-right:10px; display:inline-block; transition:all 0.3s ease;", onmouseover = "this.style.backgroundColor='#e91e63'", onmouseout = "this.style.backgroundColor='#c2185b'" })
+        @Html.ActionLink("Back to List", "Index", null, new { @style = "background-color:#fff; color:#c2185b; padding:10px 20px; border-radius:8px; text-decoration:none; border:2px solid #c2185b; display:inline-block; transition:all 0.3s ease;", onmouseover = "this.style.backgroundColor='#c2185b'; this.style.color='#fff'", onmouseout = "this.style.backgroundColor='#fff'; this.style.color='#c2185b'" })
+    </div>
+</main>

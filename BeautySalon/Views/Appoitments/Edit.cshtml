@@ -1,0 +1,57 @@
+﻿@model BeautySalon.Models.Appoitments
+
+@{
+    ViewBag.Title = "Edit Appointment";
+}
+
+<h2>Edit Appointment</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+       
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClientName)
+            @Html.DropDownListFor(model => model.ClientName, (SelectList)ViewBag.ClientList, "Select Client", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ClientName, "", new { @class = "text-danger" })
+        </div>
+
+   
+        <div class="form-group">
+            @Html.LabelFor(model => model.date, "Date & Time")
+            @Html.TextBoxFor(model => model.date, "{0:yyyy-MM-ddTHH:mm}", new { @class = "form-control", type = "datetime-local" })
+            @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+        </div>
+
+       
+        <div class="form-group">
+            @Html.LabelFor(model => model.TypeID, "Type")
+            @Html.DropDownListFor(model => model.TypeID, (SelectList)ViewBag.TypeList, "Select Type", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TypeID, "", new { @class = "text-danger" })
+        </div>
+
+      
+        @if (User.Identity.Name.Equals("beauty.salon@yahoo.com", StringComparison.OrdinalIgnoreCase))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status)
+                @Html.DropDownListFor(model => model.Status,
+                    new SelectList(new[]
+                    {
+                        new { Value = "Pending", Text = "Pending" },
+                        new { Value = "Accepted", Text = "Accepted" },
+                        new { Value = "Rejected", Text = "Rejected" }
+                    }, "Value", "Text", Model.Status),
+                    "Select Status", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        }
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary", style = "margin-left:10px;" })
+        </div>
+    </div>
+}

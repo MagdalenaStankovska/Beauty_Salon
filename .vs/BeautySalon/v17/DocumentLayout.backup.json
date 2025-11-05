@@ -1,0 +1,128 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|c:\\users\\petar curciev\\source\\repos\\beautysalon\\beautysalon\\views\\appoitments\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|solutionrelative:beautysalon\\views\\appoitments\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|c:\\users\\petar curciev\\source\\repos\\beautysalon\\beautysalon\\views\\appoitments\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|solutionrelative:beautysalon\\views\\appoitments\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|c:\\users\\petar curciev\\source\\repos\\beautysalon\\beautysalon\\models\\appoitments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|solutionrelative:beautysalon\\models\\appoitments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|c:\\users\\petar curciev\\source\\repos\\beautysalon\\beautysalon\\controllers\\appoitmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|solutionrelative:beautysalon\\controllers\\appoitmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\beautysalon\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|solutionrelative:beautysalon\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\beautysalon\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{401D1189-3DB6-4278-A849-93B306683737}|BeautySalon\\BeautySalon.csproj|solutionrelative:beautysalon\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Views\\Appoitments\\Index.cshtml",
+              "RelativeDocumentMoniker": "BeautySalon\\Views\\Appoitments\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Views\\Appoitments\\Index.cshtml*",
+              "RelativeToolTip": "BeautySalon\\Views\\Appoitments\\Index.cshtml*",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAkwJIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-01T14:57:01.319Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Views\\Appoitments\\Create.cshtml",
+              "RelativeDocumentMoniker": "BeautySalon\\Views\\Appoitments\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Views\\Appoitments\\Create.cshtml",
+              "RelativeToolTip": "BeautySalon\\Views\\Appoitments\\Create.cshtml",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAkwGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-01T14:52:42.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Appoitments.cs",
+              "DocumentMoniker": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Models\\Appoitments.cs",
+              "RelativeDocumentMoniker": "BeautySalon\\Models\\Appoitments.cs",
+              "ToolTip": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Models\\Appoitments.cs",
+              "RelativeToolTip": "BeautySalon\\Models\\Appoitments.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAUwCAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:52:32.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "BeautySalon\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "BeautySalon\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T10:30:53.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "BeautySalon\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "BeautySalon\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T08:16:34.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppoitmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Controllers\\AppoitmentsController.cs",
+              "RelativeDocumentMoniker": "BeautySalon\\Controllers\\AppoitmentsController.cs",
+              "ToolTip": "C:\\Users\\Petar Curciev\\source\\repos\\BeautySalon\\BeautySalon\\Controllers\\AppoitmentsController.cs",
+              "RelativeToolTip": "BeautySalon\\Controllers\\AppoitmentsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T12:25:45.742Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

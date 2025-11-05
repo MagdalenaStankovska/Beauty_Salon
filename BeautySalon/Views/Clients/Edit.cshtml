@@ -1,0 +1,53 @@
+﻿@model BeautySalon.Models.Client
+
+@{
+    ViewBag.Title = "Edit Client";
+}
+
+<main style="font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: 40px auto; background-color: #ffe6f0; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #c2185b; text-align: center; font-size: 2rem; margin-bottom: 20px;">@ViewBag.Title</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div style="margin-top: 20px;">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ClientId)
+
+         
+            <div style="margin-bottom: 20px;">
+                @Html.LabelFor(model => model.ClientName, htmlAttributes: new { @style = "font-weight:bold; display:block; margin-bottom:5px; color:#880e4f;" })
+                @Html.EditorFor(model => model.ClientName, new { htmlAttributes = new { @class = "form-control", @style = "width:100%; padding:10px; border-radius:8px; border:1px solid #ccc;" } })
+                @Html.ValidationMessageFor(model => model.ClientName, "", new { @class = "text-danger", @style = "color:#d32f2f;" })
+            </div>
+
+       
+            <div style="margin-bottom: 20px;">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @style = "font-weight:bold; display:block; margin-bottom:5px; color:#880e4f;" })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @style = "width:100%; padding:10px; border-radius:8px; border:1px solid #ccc;" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", @style = "color:#d32f2f;" })
+            </div>
+
+       
+            <div style="margin-bottom: 20px;">
+                @Html.LabelFor(model => model.MobilePhone, htmlAttributes: new { @style = "font-weight:bold; display:block; margin-bottom:5px; color:#880e4f;" })
+                @Html.EditorFor(model => model.MobilePhone, new { htmlAttributes = new { @class = "form-control", @style = "width:100%; padding:10px; border-radius:8px; border:1px solid #ccc;" } })
+                @Html.ValidationMessageFor(model => model.MobilePhone, "", new { @class = "text-danger", @style = "color:#d32f2f;" })
+            </div>
+
+            <div style="text-align:center; margin-top: 30px;">
+                <input type="submit" value="Save" style="background-color:#c2185b; color:white; padding:10px 25px; border:none; border-radius:8px; font-size:1rem; cursor:pointer; transition:all 0.3s ease;"
+                       onmouseover="this.style.backgroundColor='#e91e63'" onmouseout="this.style.backgroundColor='#c2185b'" />
+            </div>
+        </div>
+    }
+
+    <div style="text-align:center; margin-top: 20px;">
+        @Html.ActionLink("Back to List", "Index", null, new { @style = "color:#c2185b; text-decoration:none; font-weight:bold;" })
+    </div>
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Beauty Salon</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        /* Darker pink for header */
+        .custom-dark-pink {
+            background-color: #E75480 !important; /* Dark pink shade */
+        }
+
+            .custom-dark-pink .nav-link,
+            .custom-dark-pink .navbar-brand {
+                color: white !important;
+            }
+
+            .custom-dark-pink .navbar-toggler-icon {
+                filter: invert(1);
+            }
+
+        /* Light pastel pink background for entire body */
+        body {
+            background-color: #F8BBD0 !important; /* Light soft pastel pink */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark custom-dark-pink">
+        <div class="container">
+            @Html.ActionLink("Beauty Salon", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Clients", "Index", "Clients", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Appointments", "Index", "Appoitments", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Contact us", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Beauty Salon</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

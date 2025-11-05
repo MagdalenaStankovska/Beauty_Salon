@@ -1,0 +1,72 @@
+﻿@using BeautySalon.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<main style="max-width: 800px; margin: 40px auto; padding: 30px; background-color: #ffe6f0; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" aria-labelledby="title">
+    <h2 id="title" class="text-center" style="color:#c2185b;">@ViewBag.Title</h2>
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <h4 class="mb-3" style="color:#c2185b;">Use your account to log in</h4>
+                    <hr style="border-top: 2px solid #c2185b;" />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+                    <div class="form-group row mb-3">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-3 col-form-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter your email" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-3">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-3 col-form-label" })
+                        <div class="col-md-9">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter your password" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-4">
+                        <div class="offset-md-3 col-md-9">
+                            <div class="form-check">
+                                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
+                                @Html.LabelFor(m => m.RememberMe, new { @class = "form-check-label" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-4">
+                        <div class="offset-md-3 col-md-9">
+                            <button type="submit" class="btn btn-dark btn-block" style="background-color:#c2185b; border-color:#c2185b;">Log in</button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="offset-md-3 col-md-9">
+                            <p>
+                                @Html.ActionLink("Register as a new user", "Register", null, new { @class = "text-dark", style = "font-weight:bold;" })
+                            </p>
+                        </div>
+                    </div>
+                }
+            </section>
+        </div>
+
+        @*<div class="col-md-4">
+            <section id="socialLoginForm" class="p-3" style="background-color:#ffd6e1; border-radius:8px;">
+                <h5 style="color:#c2185b;">Or log in with:</h5>
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>*@
+    </div>
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

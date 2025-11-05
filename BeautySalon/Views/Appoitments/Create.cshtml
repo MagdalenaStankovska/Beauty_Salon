@@ -1,0 +1,97 @@
+﻿@model BeautySalon.Models.Appoitments
+
+@{
+    ViewBag.Title = "Create Appointment";
+    string currentUserEmail = User.Identity.Name;
+    bool isAdmin = currentUserEmail.Equals("beauty.salon@yahoo.com", StringComparison.OrdinalIgnoreCase);
+
+    string clientName = "";
+    if (!isAdmin && ViewBag.ClientList != null)
+    {
+        var clients = ((SelectList)ViewBag.ClientList).ToList();
+        if (clients.Any())
+        {
+            clientName = clients[0].Text;
+        }
+    }
+}
+
+<h2>Create Appointment</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Appointment</h4>
+        <hr />
+
+        <!-- Client Name -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClientName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @if (isAdmin)
+                {
+                    @Html.DropDownListFor(
+                        model => model.ClientName,
+                        (SelectList)ViewBag.ClientList,
+                        "Select Client",
+                        new { @class = "form-control" }
+                    )
+                }
+                else
+                {
+                    <!-- Display only -->
+                    <input type="text" class="form-control" value="@clientName" readonly />
+                    <!-- Hidden input for form submission -->
+                    <input type="hidden" name="ClientName" value="@clientName" />
+                }
+                @Html.ValidationMessageFor(model => model.ClientName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Date & Time -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.date, "Date & Time", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" id="appointmentDateTime" name="date" class="form-control" />
+                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Type -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.TypeID, "Type", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(
+                    model => model.TypeID,
+                    (SelectList)ViewBag.TypeID,
+                    "Select Type",
+                    new { @class = "form-control" }
+                )
+                @Html.ValidationMessageFor(model => model.TypeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Flatpickr CSS & JS -->
+<link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+    flatpickr("#appointmentDateTime", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true,
+        minTime: "12:00",
+        maxTime: "19:00"
+    });
+</script>

@@ -1,0 +1,120 @@
+﻿@model IEnumerable<BeautySalon.Models.Client>
+
+@{
+    ViewBag.Title = "Clients";
+    bool isAdmin = User.Identity.Name.Equals("beauty.salon@yahoo.com", StringComparison.OrdinalIgnoreCase);
+    var referer = Request.UrlReferrer != null ? Request.UrlReferrer.AbsolutePath.ToLower() : "";
+}
+
+<main style="font-family: 'Segoe UI', sans-serif; max-width: 800px; margin: 40px auto; background-color: #ffe6f0; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+
+    <h2 style="color: #c2185b; text-align: center; font-size: 2rem; margin-bottom: 20px;">@ViewBag.Title</h2>
+
+    @* ✅ Success message (only if redirected from Register) *@
+    @if (referer.Contains("register"))
+    {
+        <div id="successMessage"
+             style="background-color:#f8bbd0; color:#880e4f; border:1px solid #f48fb1;
+                    padding:15px; border-radius:8px; margin-bottom:25px; text-align:center; font-weight:500;">
+            🎉 Your account has been successfully created! <br />
+            You’ve been added to the clients list.
+        </div>
+    }
+
+    @if (isAdmin)
+    {
+        <p style="text-align: center; margin-bottom: 30px;">
+            @Html.ActionLink("Create New Client", "Create", null, new { @class = "btn-create" })
+        </p>
+
+        <table style="width: 100%; border-collapse: collapse; background-color: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+            <thead style="background-color: #c2185b; color: #fff;">
+                <tr>
+                    <th style="padding: 12px; text-align: left;">@Html.DisplayNameFor(model => model.First().ClientName)</th>
+                    <th style="padding: 12px; text-align: left;">@Html.DisplayNameFor(model => model.First().Email)</th>
+                    <th style="padding: 12px; text-align: left;">@Html.DisplayNameFor(model => model.First().MobilePhone)</th>
+                    <th style="padding: 12px; text-align: center;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr style="border-bottom: 1px solid #f0f0f0;">
+                        <td style="padding: 12px;">@Html.DisplayFor(modelItem => item.ClientName)</td>
+                        <td style="padding: 12px;">@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td style="padding: 12px;">@Html.DisplayFor(modelItem => item.MobilePhone)</td>
+                        <td style="padding: 12px; text-align: center;">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ClientId }, new { @class = "btn-action" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ClientId }, new { @class = "btn-action" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ClientId }, new { @class = "btn-action delete-btn" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        @* Optional: Access denied modal for non-admin users *@
+        <!--
+        <div id="accessModal" style="position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index:1000;">
+            <div style="background:white; padding:30px; border-radius:12px; text-align:center; max-width:400px; box-shadow:0 4px 10px rgba(0,0,0,0.3);">
+                <h3 style="color:#c2185b; margin-bottom:20px;">Access Denied</h3>
+                <p>You do not have permission to view the clients list.</p>
+                <button id="goHome" style="background-color:#c2185b; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Go to Home</button>
+            </div>
+        </div>
+        <script>
+            document.getElementById("goHome").addEventListener("click", function () {
+                window.location.href = '@Url.Action("Index", "Home")';
+            });
+        </script>
+        -->
+    }
+</main>
+
+<style>
+    .btn-create {
+        background-color: #c2185b;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-create:hover {
+            background-color: #e91e63;
+        }
+
+    .btn-action {
+        color: #c2185b;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+        .btn-action:hover {
+            color: #e91e63;
+        }
+
+    .delete-btn {
+        color: #d32f2f;
+    }
+
+        .delete-btn:hover {
+            color: #f44336;
+        }
+</style>
+
+<script>
+    // 🩷 Fade out the success message after a few seconds
+    setTimeout(function () {
+        const msg = document.getElementById("successMessage");
+        if (msg) {
+            msg.style.transition = "opacity 0.6s ease";
+            msg.style.opacity = "0";
+            setTimeout(() => msg.remove(), 600);
+        }
+    }, 4000);
+</script>

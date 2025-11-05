@@ -1,0 +1,146 @@
+﻿@model IEnumerable<BeautySalon.Models.Appoitments>
+
+@{
+    ViewBag.Title = "Appointments";
+    string currentFilter = Request.QueryString["searchString"];
+    string statusFilter = Request.QueryString["statusFilter"];
+    string typeFilter = Request.QueryString["typeFilter"];
+    string sortOrder = Request.QueryString["sortOrder"];
+    var types = ViewBag.TypeList as List<string>;
+    bool isAdmin = ViewBag.IsAdmin != null && (bool)ViewBag.IsAdmin;
+}
+
+<main style="font-family: 'Segoe UI', sans-serif; max-width: 1000px; margin: 40px auto; background-color: #ffe6f0; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #c2185b; text-align: center; font-size: 2rem; margin-bottom: 20px;">@ViewBag.Title</h2>
+
+    <div style="margin-bottom: 20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+        <p>@Html.ActionLink("Create New Appointment", "Create", null, new { @class = "btn-create" })</p>
+
+        @* Only show filter form for admins *@
+        @if (isAdmin)
+        {
+            <form method="get" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                <input type="text" name="searchString" value="@currentFilter" placeholder="Search by client" class="form-control" style="padding:5px; border-radius:5px;" />
+
+                <select name="statusFilter" class="form-control" style="padding:5px; border-radius:5px;">
+                    <option value="">All Status</option>
+                    <option value="Pending" @(statusFilter == "Pending" ? "selected=\"selected\"" : "")>Pending</option>
+                    <option value="Accepted" @(statusFilter == "Accepted" ? "selected=\"selected\"" : "")>Accepted</option>
+                    <option value="Rejected" @(statusFilter == "Rejected" ? "selected=\"selected\"" : "")>Rejected</option>
+                </select>
+
+                <select name="typeFilter" class="form-control" style="padding:5px; border-radius:5px;">
+                    <option value="">All Types</option>
+                    @if (types != null)
+                    {
+                        foreach (var type in types)
+                        {
+                            <option value="@type" @(typeFilter == type ? "selected=\"selected\"" : "")>@type</option>
+                        }
+                    }
+                </select>
+
+                <button type="submit" class="btn-create" style="padding:5px 15px;">Filter</button>
+            </form>
+        }
+    </div>
+
+    <table style="width: 100%; border-collapse: collapse; background-color: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <thead style="background-color: #c2185b; color: #fff;">
+            <tr>
+                <th style="padding: 12px; text-align: left;">
+                    @Html.ActionLink("Type of Appointment", "Index", new { sortOrder = ViewBag.TypeSortParm, searchString = currentFilter, statusFilter = statusFilter, typeFilter = typeFilter })
+                </th>
+                <th style="padding: 12px; text-align: left;">
+                    @Html.ActionLink("Date & Time", "Index", new { sortOrder = ViewBag.DateSortParm, searchString = currentFilter, statusFilter = statusFilter, typeFilter = typeFilter })
+                </th>
+
+                @* Show Client Name column only for admins *@
+                @if (isAdmin)
+                {
+                    <th style="padding: 12px; text-align: left;">Client Name</th>
+                }
+
+                <th style="padding: 12px; text-align: left;">Status</th>
+                <th style="padding: 12px; text-align: center;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                // Regular users only see Accepted appointments
+                if (!isAdmin && item.Status != "Accepted")
+                {
+                    continue;
+                }
+
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 12px;">@item.tipche.tipche</td>
+                    <td style="padding: 12px;">@item.date.ToString("dd/MM/yyyy HH:mm")</td>
+
+                    @* Show Client Name only for admins *@
+                    @if (isAdmin)
+                    {
+                        <td style="padding: 12px;">@item.ClientName</td>
+                    }
+
+                    <td style="padding: 12px; font-weight:bold; color:@(item.Status=="Accepted" ? "green" : item.Status=="Rejected" ? "red" : "orange")">
+                        @item.Status
+                    </td>
+                    <td style="padding: 12px; text-align:center;">
+                        @if (isAdmin)
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.AppoitmentID }, new { @class = "btn-action" })
+                            @: |
+                            @Html.ActionLink("Details", "Details", new { id = item.AppoitmentID }, new { @class = "btn-action" })
+                            @: |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.AppoitmentID }, new { @class = "btn-action delete-btn" })
+                        }
+                        else
+                        {
+                            <span style="color:gray;">Not allowed</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>
+
+<style>
+    .btn-create {
+        background-color: #c2185b;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-create:hover {
+            background-color: #e91e63;
+        }
+
+    .btn-action {
+        color: #c2185b;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+        .btn-action:hover {
+            color: #e91e63;
+        }
+
+    .delete-btn {
+        color: #d32f2f;
+    }
+
+        .delete-btn:hover {
+            color: #f44336;
+        }
+
+    .form-control {
+        min-width: 120px;
+    }
+</style>
